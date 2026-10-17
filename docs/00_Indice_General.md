@@ -6,6 +6,10 @@ Bienvenido a la documentación oficial de **App Canela ("Canela Elaborados")**. 
 
 ## 📁 Estructura de Manuales
 
+### [05. Control de Versiones y Despliegue (Git/DNS)](#)
+Manual sobre el flujo de trabajo en Git, la estrategia de ramas, el despliegue a GitHub Pages y la delegación de dominios con nic.ar y Cloudflare.
+* **[Capítulo 1: Página en Construcción y Despliegue DNS](./05_Control_de_Versiones_Git/01_Pagina_En_Construccion_y_Despliegue_DNS.md)**: Proceso paso a paso del despliegue en la rama `gh-pages` y la configuración de nic.ar con DNS gratuito de Cloudflare.
+
 ### [06. Interfaz Gráfica (UI/UX)](./06_Interfaz_Grafica/README.md)
 Guías de diseño, componentes visuales, tipografías, colores y comportamiento responsive de la aplicación.
 * **[Capítulo 1: Manual de Marca / Identidad Visual](./06_Interfaz_Grafica/01_Manual_de_Marca.md)**: Manual que define los colores principales, logotipo y tipografía oficial cargada a través de Adobe Typekit.
