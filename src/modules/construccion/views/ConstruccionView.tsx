@@ -1,6 +1,17 @@
+const animacion = `
+  @keyframes construccion-entrada {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+`;
+
 export const ConstruccionView = () => (
   <main className="flex min-h-dvh items-center justify-center overflow-hidden bg-[#ede4da] p-8">
-    <div className="w-full max-w-[500px] fill-current text-[#caa6ce]">
+    <style>{animacion}</style>
+    <div
+      className="w-full max-w-[500px] fill-current text-[#caa6ce]"
+      style={{ animation: 'construccion-entrada 1.2s ease-out forwards' }}
+    >
       <svg
         id="Capa_2"
         data-name="Capa 2"
