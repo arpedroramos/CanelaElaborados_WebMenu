@@ -18,6 +18,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        azul: "rounded-full bg-azul text-crema hover:bg-carbon hover:text-crema focus-visible:ring-lavanda",
+        linea:
+          "rounded-full border-2 border-azul bg-transparent text-azul hover:bg-crema hover:text-azul focus-visible:ring-lavanda",
+        crema: "rounded-full bg-crema text-azul hover:bg-lavanda hover:text-carbon focus-visible:ring-lavanda",
+        chip: "rounded-full border-[1.5px] border-lila bg-crema font-bold text-lila-deep hover:border-lavanda hover:bg-lavanda hover:text-carbon focus-visible:ring-lavanda",
       },
       size: {
         default:
@@ -25,6 +30,9 @@ const buttonVariants = cva(
         xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
         lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        pill: "min-h-12 px-6 text-[13px] font-bold tracking-[0.1em] uppercase",
+        "pill-sm": "min-h-11 px-[18px] text-xs font-bold tracking-[0.1em] uppercase",
+        chip: "min-h-11 px-4 text-[13px]",
         icon: "size-8",
         "icon-xs":
           "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
@@ -55,4 +63,7 @@ function Button({
   )
 }
 
-export { Button, buttonVariants }
+/** Clases de botón para enlaces (`<a>`): resuelve los conflictos de Tailwind igual que `Button`. */
+const buttonClass = (props?: VariantProps<typeof buttonVariants>) => cn(buttonVariants(props))
+
+export { Button, buttonClass, buttonVariants }
