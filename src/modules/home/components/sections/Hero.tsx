@@ -1,6 +1,7 @@
 import logoMascota from '@/assets/logo_mascota_canela.png';
 import { buttonClass } from '@/components/ui/button';
 import { CONTACTO } from '@/data/contacto';
+import { HAY_MENU } from '@/data/menu';
 import { buildOrderUrl } from '@/lib/whatsapp';
 
 export const Hero = () => (
@@ -26,9 +27,11 @@ export const Hero = () => (
           Pedidos con <b>{CONTACTO.plazoPedido}</b> de anticipación.
         </div>
         <div className="flex flex-wrap justify-center gap-3">
-          <a className={buttonClass({ variant: 'azul', size: 'pill' })} href="#menu">
-            Ver el menú
-          </a>
+          {HAY_MENU && (
+            <a className={buttonClass({ variant: 'azul', size: 'pill' })} href="#menu">
+              Ver el menú
+            </a>
+          )}
           <a
             className={buttonClass({ variant: 'linea', size: 'pill' })}
             href={buildOrderUrl('hacer un pedido')}

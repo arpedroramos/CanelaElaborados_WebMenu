@@ -1,8 +1,8 @@
 import type { MenuCategory } from './menu_types';
 
-/** Texto de producto del mensaje de WhatsApp; el saludo lo agrega `buildOrderUrl`. */
+/** Plantilla única: `buildOrderUrl` antepone "Hola Canela! Quiero ". */
 const producto = (titulo: string, presentacion?: string): string =>
-  presentacion ? `${titulo} (${presentacion})` : titulo;
+  `pedir: ${presentacion ? `${titulo} (${presentacion})` : titulo}`;
 
 /** Completa `order` donde venga vacío, con la plantilla genérica del sitio. */
 export const completarPedidos = (categorias: MenuCategory[]): MenuCategory[] =>

@@ -6,4 +6,4 @@ export const buildWhatsAppUrl = (message?: string): string => {
 };
 
 export const buildOrderUrl = (product: string): string =>
-  buildWhatsAppUrl(`Hola Canela! Quiero pedir: ${product}`);
+  buildWhatsAppUrl(`Hola Canela! Quiero ${product}`);

@@ -1,3 +1,4 @@
+import { HAY_MENU } from '@/data/menu';
 import { ContactFooter } from '../components/layout/ContactFooter';
 import { SectionTabs } from '../components/layout/SectionTabs';
 import { TopBar } from '../components/layout/TopBar';
@@ -12,7 +13,7 @@ export const HomeView = () => (
     <SectionTabs />
     <main>
       <Hero />
-      <MenuSection />
+      {HAY_MENU && <MenuSection />}
       <WorksSection />
       <AboutSection />
     </main>
