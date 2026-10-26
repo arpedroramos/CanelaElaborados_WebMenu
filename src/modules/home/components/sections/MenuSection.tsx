@@ -30,7 +30,7 @@ const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; show
       <div className="mt-6">
         <a
           className={buttonClass({ variant: 'azul', size: 'pill' })}
-          href={buildOrderUrl(category.footerCta.order)}
+          href={buildOrderUrl(category.footerCta.order ?? category.title)}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -42,10 +42,10 @@ const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; show
 );
 
 export const MenuSection = () => {
-  const [activeId, setActiveId] = useState(CATEGORIES[0].id);
+  const [activeId, setActiveId] = useState(CATEGORIES[0]?.id ?? ALL_ID);
   const isAll = activeId === ALL_ID;
-  const category = CATEGORIES.find((item) => item.id === activeId) ?? CATEGORIES[0];
-  const visible = isAll ? CATEGORIES : [category];
+  const category = CATEGORIES.find((item) => item.id === activeId);
+  const visible = isAll || !category ? CATEGORIES : [category];
 
   return (
     <section id="menu" className="bg-crema py-14">
@@ -58,8 +58,8 @@ export const MenuSection = () => {
         <MenuTabs categories={CATEGORIES} activeId={activeId} onChange={setActiveId} />
         <div
           role="tabpanel"
-          id={`panel-${isAll ? ALL_ID : category.id}`}
-          aria-labelledby={`tab-${isAll ? ALL_ID : category.id}`}
+          id={`panel-${category?.id ?? ALL_ID}`}
+          aria-labelledby={`tab-${category?.id ?? ALL_ID}`}
           tabIndex={0}
           className="outline-none focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-lavanda"
         >

@@ -7,57 +7,42 @@
     "items": [
       {
         "title": "Coco y dulce de leche",
-        "description": "Masa sablée, dulce de leche y coco rallado.",
-        "order": "la tarta de Coco y Dulce de Leche",
-        "cta": "Pedir esta tarta"
+        "description": "Masa sablée, dulce de leche y coco rallado."
       },
       {
         "title": "Tofi",
-        "description": "Masa sablée, dulce de leche, cubierta de chocolate.",
-        "order": "la tarta Tofi",
-        "cta": "Pedir esta tarta"
+        "description": "Masa sablée, dulce de leche, cubierta de chocolate."
       },
       {
         "title": "Pastafrola",
         "description": "Masa dulce. De membrillo, batata o mixta.",
         "options": [
           {
-            "label": "Membrillo",
-            "order": "la Pastafrola de Membrillo"
+            "label": "Membrillo"
           },
           {
-            "label": "Batata",
-            "order": "la Pastafrola de Batata"
+            "label": "Batata"
           },
           {
-            "label": "Mixta",
-            "order": "la Pastafrola Mixta"
+            "label": "Mixta"
           }
         ]
       },
       {
         "title": "Lemon pie",
-        "description": "Masa sablée, curd de limón, decorado con merengue italiano.",
-        "order": "el Lemon Pie",
-        "cta": "Pedir esta tarta"
+        "description": "Masa sablée, curd de limón, decorado con merengue italiano."
       },
       {
         "title": "Key lime pie",
-        "description": "Masa sablée, crema de limas, decorado con crema de leche batida.",
-        "order": "el Key Lime Pie",
-        "cta": "Pedir esta tarta"
+        "description": "Masa sablée, crema de limas, decorado con crema de leche batida."
       },
       {
         "title": "Tarta de manzana invertida",
-        "description": "Bizcochuelo húmedo de manteca con manzanas y caramelo.",
-        "order": "la Tarta de Manzana Invertida",
-        "cta": "Pedir esta tarta"
+        "description": "Bizcochuelo húmedo de manteca con manzanas y caramelo."
       },
       {
         "title": "Tiramisú",
-        "description": "Postre a base de genoise de vainilla remojado en café, crema de queso mascarpone y cacao amargo.",
-        "order": "el Tiramisu",
-        "cta": "Pedir este postre"
+        "description": "Postre a base de genoise de vainilla remojado en café, crema de queso mascarpone y cacao amargo."
       }
     ]
   },
@@ -67,8 +52,7 @@
     "title": "Budines",
     "note": "Todos los budines son de 550/600 grs.",
     "footerCta": {
-      "label": "Encargar budines",
-      "order": "encargar budines"
+      "label": "Encargar budines"
     },
     "items": [
       {
@@ -96,12 +80,10 @@
         "description": "Budín de banana sin cobertura, con harina blanca o integral.",
         "options": [
           {
-            "label": "Harina blanca",
-            "order": "el Budin de Banana con harina blanca"
+            "label": "Harina blanca"
           },
           {
-            "label": "Integral",
-            "order": "el Budin de Banana integral"
+            "label": "Integral"
           }
         ]
       },

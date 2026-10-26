@@ -38,8 +38,8 @@ export const COLUMNAS_CATEGORIAS = [
 ] as const;
 
 /** Las opciones se escriben en una celda como "Etiqueta|pedido; Otra|otro pedido". */
-export const formatearOpciones = (opciones: { label: string; order: string }[]) =>
-  opciones.map((o) => `${o.label}|${o.order}`).join('; ');
+export const formatearOpciones = (opciones: { label: string; order?: string }[]) =>
+  opciones.map((o) => `${o.label}|${o.order ?? o.label}`).join('; ');
 
 export const parsearOpciones = (texto: string) =>
   texto

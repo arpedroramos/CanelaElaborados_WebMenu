@@ -29,7 +29,7 @@ export const MenuCard = ({ item }: { item: MenuItem }) => (
           <a
             key={option.label}
             className={buttonClass({ variant: 'chip', size: 'chip' })}
-            href={buildOrderUrl(option.order)}
+            href={buildOrderUrl(option.order ?? option.label)}
             {...external}
           >
             {option.label}

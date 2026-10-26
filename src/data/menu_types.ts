@@ -1,7 +1,7 @@
 export interface MenuOption {
   label: string;
-  /** Producto tal como se escribe en el mensaje de WhatsApp. */
-  order: string;
+  /** Producto del mensaje de WhatsApp; si falta, lo arma `completarPedidos`. */
+  order?: string;
 }
 
 export interface MenuItem {
@@ -28,5 +28,5 @@ export interface MenuCategory {
   priceNote?: string;
   items: MenuItem[];
   /** Botón de pedido general al final de la categoría. */
-  footerCta?: { label: string; order: string };
+  footerCta?: { label: string; order?: string };
 }
