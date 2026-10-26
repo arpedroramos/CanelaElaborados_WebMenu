@@ -10,10 +10,10 @@ export const MenuCard = ({ item }: { item: MenuItem }) => (
       {item.imgSrc && (
         <img
           src={item.imgSrc}
-          alt={item.title}
+          alt={item.imgAlt || item.title}
           loading="lazy"
-          width={800}
-          height={600}
+          width={item.imgWidth ?? 800}
+          height={item.imgHeight ?? 600}
           className="size-full object-cover"
         />
       )}

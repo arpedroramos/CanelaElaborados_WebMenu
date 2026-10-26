@@ -9,6 +9,11 @@ export interface MenuItem {
   description: string;
   /** Ruta de la foto; vacío muestra el espacio reservado. */
   imgSrc?: string;
+  /** Texto alternativo de la foto; sin él se usa el título. */
+  imgAlt?: string;
+  /** Medidas reales de la foto en píxeles, para que el navegador reserve el espacio. */
+  imgWidth?: number;
+  imgHeight?: number;
   /** Precio ya formateado (ej. "$12.000"); vacío no muestra nada. */
   price?: string;
   /** Producto tal como se escribe en el mensaje de WhatsApp. Sin él ni opciones, no hay botón de pedido. */

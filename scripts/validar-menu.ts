@@ -38,6 +38,15 @@ for (const cat of menu) {
 
   for (const item of cat.items ?? []) {
     if (!item.title) errores.push(`Hay un producto sin título en la categoría "${nombre}".`);
+    for (const campo of ['imgWidth', 'imgHeight'] as const) {
+      const valor = item[campo];
+      if (valor !== undefined && (!Number.isInteger(valor) || valor <= 0)) {
+        errores.push(`"${campo}" de "${item.title}" debe ser un entero mayor que 0.`);
+      }
+    }
+    if (item.imgAlt !== undefined && typeof item.imgAlt !== 'string') {
+      errores.push(`"imgAlt" de "${item.title}" debe ser texto.`);
+    }
     if (!item.imgSrc) continue;
     const archivo = item.imgSrc.replace(/^\/?(img\/menu\/)?/, '');
     usadas.add(archivo);
