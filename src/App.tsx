@@ -1,16 +1,11 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HomeView } from '@modules/home/views/HomeView';
+import { ConstruccionView } from '@modules/construccion/views/ConstruccionView';
 
-const queryClient = new QueryClient();
+// Se decide al compilar: VITE_EN_CONSTRUCCION=true en .env muestra la pantalla de construcción.
+const enConstruccion = import.meta.env.VITE_EN_CONSTRUCCION === 'true';
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <div className="w-full min-h-screen bg-background overflow-x-hidden flex flex-col items-center">
-        <HomeView />
-      </div>
-    </QueryClientProvider>
-  );
+  return enConstruccion ? <ConstruccionView /> : <HomeView />;
 }
 
 export default App;
