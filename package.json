@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run validar && tsc -b && vite build",
     "lint": "oxlint",
+    "validar": "tsx scripts/validar-menu.ts",
     "preview": "vite preview",
     "contenido": "tsx scripts/generar-contenido.ts",
     "contenido:plantilla": "tsx scripts/crear-plantilla.ts",
