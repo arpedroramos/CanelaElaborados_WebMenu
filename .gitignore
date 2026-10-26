@@ -12,10 +12,8 @@ dist
 dist-ssr
 *.local
 
-# Contenido editable del menú (Excel + fotos) y salidas generadas
+# Contenido editable del menú (Excel) local
 contenido/
-public/img/menu/
-src/data/menu.generated.json
 
 # Editor directories and files
 .vscode/*
