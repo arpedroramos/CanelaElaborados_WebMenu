@@ -1,24 +1,22 @@
-# Índice General de Documentación: App Canela
+# Índice General de Documentación: Canela Elaborados
 
-Bienvenido a la documentación oficial de **App Canela ("Canela Elaborados")**. Este índice actúa como el mapa de navegación principal para todos los manuales y guías de diseño y desarrollo técnico del proyecto.
+Mapa de navegación de la documentación del portfolio y menú de **Canela Elaborados**. Cuando se agregue, mueva o elimine un documento, actualiza este índice.
 
 ---
 
-## 📁 Estructura de Manuales
+## 📁 Estructura
 
-### [05. Control de Versiones y Despliegue (Git/DNS)](#)
-Manual sobre el flujo de trabajo en Git, la estrategia de ramas, el despliegue a GitHub Pages y la delegación de dominios con nic.ar y Cloudflare.
-* **[Capítulo 1: Página en Construcción y Despliegue DNS](./05_Control_de_Versiones_Git/01_Pagina_En_Construccion_y_Despliegue_DNS.md)**: Proceso paso a paso del despliegue en la rama `gh-pages` y la configuración de nic.ar con DNS gratuito de Cloudflare.
+### [05. Control de Versiones y Despliegue (Git/DNS)](./05_Control_de_Versiones_Git/)
+* **[Despliegue en GitHub Pages y DNS](./05_Control_de_Versiones_Git/01_Pagina_En_Construccion_y_Despliegue_DNS.md)**: Estrategia de ramas (`master` / `gh-pages`), publicación de `dist/`, dominio `canelaelaborados.com.ar` con nic.ar y Cloudflare.
+* **[Contenido del menú desde Excel](./05_Control_de_Versiones_Git/02_Contenido_del_Menu_desde_Excel.md)**: Carpeta local `contenido/` (fuera de git), estructura del Excel y publicación con `npm run publicar`.
 
 ### [06. Interfaz Gráfica (UI/UX)](./06_Interfaz_Grafica/README.md)
-Guías de diseño, componentes visuales, tipografías, colores y comportamiento responsive de la aplicación.
-* **[Capítulo 1: Manual de Marca / Identidad Visual](./06_Interfaz_Grafica/01_Manual_de_Marca.md)**: Manual que define los colores principales, logotipo y tipografía oficial cargada a través de Adobe Typekit.
-* **[Capítulo 2: Sistema de Diseño (Design Tokens)](./06_Interfaz_Grafica/02_Sistema_de_Diseno.md)**: Variables CSS globales, espaciados, bordes redondeados y especificaciones técnicas para estilos.
-* **[Capítulo 3: Componentes Básicos (UI)](./06_Interfaz_Grafica/03_Componentes_Basicos_UI.md)**: Estilos y especificaciones para botones, inputs, barras laterales, tarjetas, etc.
-* **[Capítulo 4: Tablas y Listados de Datos](./06_Interfaz_Grafica/04_Tablas_y_Listados.md)**: Estilos para la presentación tabular de productos, stocks y datos.
-* **[Capítulo 5: Modales y Overlays](./06_Interfaz_Grafica/05_Modales_y_Overlays.md)**: Interacciones, diálogos flotantes y overlays de confirmación.
-* **[Capítulo 6: Reglas de Diseño Responsive y Mobile First](./06_Interfaz_Grafica/08_Reglas_Responsive_y_Mobile_First.md)**: Layouts responsivos y adaptaciones para dispositivos móviles.
+* **[Guía de diseño web](./06_Interfaz_Grafica/00_Guia_de_Diseno_Web.md)**: Referencia canónica del diseño (paleta, tipografías, estructura de la página y reglas mobile first).
+* **[Cap. 1: Manual de Marca](./06_Interfaz_Grafica/01_Manual_de_Marca.md)**: Logotipos, paleta y tipografías (Adobe Typekit: Optima Nova, Gotham, Felt Tip Woman, Optima Nova Cond).
+* **[Cap. 2: Sistema de Diseño](./06_Interfaz_Grafica/02_Sistema_de_Diseno.md)**: Tokens de `src/index.css`, tipografía, layout y formas.
+* **[Cap. 3: Componentes Básicos y Productos](./06_Interfaz_Grafica/03_Componentes_Basicos_UI.md)**: Botones, componentes de la página y formato de los datos del menú.
+* **[Cap. 4: Reglas Responsive y Mobile First](./06_Interfaz_Grafica/04_Reglas_Responsive_y_Mobile_First.md)**: Reglas de diseño adaptativo y táctil.
 
 ---
 
-*Nota: A medida que se agreguen más secciones como Manual de Usuario (01), Manual Técnico (02), DevOps (03), etc., se irán registrando en este índice.*
+*Secciones previstas bajo demanda: `Informes/` (auditorías fechadas), `Registro_Errores.md` y `Changelog.md`.*

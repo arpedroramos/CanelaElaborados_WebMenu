@@ -1,42 +1,36 @@
-# Manual de Identidad Visual: Canela Elaborados
+# Capítulo 1: Manual de marca
 
-Este documento actúa como el manual de uso y guía técnica para la aplicación de la identidad gráfica de **Canela Elaborados** en su plataforma web y canales digitales.
+Identidad de **Canela** (pastelería artesanal). El detalle de colores, tipografías y uso está en [00_Guia_de_Diseno_Web.md](./00_Guia_de_Diseno_Web.md); este capítulo resume lo esencial.
 
----
+## 1. Elementos gráficos
 
-## 1. Elementos Gráficos Base
+El logotipo "CANELA" (letras pesadas) y la mascota (conejo en un molde) son arte gráfico, no fuentes. Archivos en `src/assets/`:
 
-Disponemos de dos isotipos vectoriales principales en formato SVG:
-1. **`Logo Canela.svg`**: Isotipo tipográfico con la palabra "CANELA" utilizando la tipografía **Coyote Bold Rough**.
-2. **`LogoConejo.svg`**: Isotipo de la mascota de la marca, un conejo asomándose de una taza/vaso.
+| Archivo | Uso |
+|---|---|
+| `logo_canela.png` | Barra superior (30 px de alto). |
+| `logo_mascota_canela.png` | Bloque Inicio. |
+| `mascota_canela.png` | Bloque Nosotros. |
 
----
+Los tres traen incrustado el fondo avena `#EDE4DA`. Para usarlos sobre otros fondos hace falta una versión SVG o PNG transparente.
 
-## 2. Paleta de Colores
+## 2. Paleta
 
-La identidad visual utiliza una paleta de colores simplificada y contrastante:
+Avena `#EDE4DA` (fondo), crema `#F4F0ED` (superficies), lavanda `#CAA6CE` (logo y espacios de foto), lila `#A07FA5` (contornos), lila profundo `#705873` (texto en lila), azul profundo `#2A3E82` (titulares, botones, pie), carbón `#1D1D1B` (texto), línea `#D9CCC0` (bordes).
 
-* **Fondo / Crema:** `#ede4da` (Color principal para fondos)
-* **Logo / Lavanda:** `#caa6ce` (Color principal de los logos)
-* **Negro:** `#1d1d1b` (Texto general y elementos principales)
-* **Blanco:** `#f4f0ed` (Superficies secundarias y áreas limpias)
-* **Verde:** `#a69b03` (Acentos de éxito, etiquetas orgánicas)
-* **Rojo:** `#ad1c4b` (Acentos de error, llamadas a la acción, avisos)
+## 3. Tipografías
 
----
+Todas salen del kit de Adobe Fonts `coc2fgk`, cargado en `index.html`:
 
-## 3. Tipografía Oficial
-
-Toda la tipografía se importa desde Adobe Typekit utilizando el siguiente recurso:
 ```html
 <link rel="stylesheet" href="https://use.typekit.net/coc2fgk.css">
 ```
 
-### Roles Tipográficos:
+| Rol | Familia |
+|---|---|
+| Títulos y nombres de producto (peso 700) | `optima-nova-lt-pro` |
+| Cuerpo, botones, navegación | `gotham` |
+| Frase de marca | `felt-tip-woman` |
+| Cierre "Hecho en Argentina" | `optima-nova-lt-pro-cond` |
 
-* **Título principal:** `optima-nova-lt-pro` (Negrita / Bold, 700) — Color `#1d1d1b`
-* **Cuerpo 1 (Principal):** `optima-nova-lt-pro` (Regular, 400) — Color `#1d1d1b`
-* **Cuerpo 2 (Secundario/Lectura):** `gotham` (Medio / Medium, 500) — Color `#1d1d1b`
-* **Detalle 1 (Destacados/Acentos manuscritos):** `felt-tip-woman` (Negrita / Bold, 700) — Color `#a07fa5`
-* **Detalle 2 (Marcas/Llamativos rústicos):** `coyote` (Bold / Rough, 700) — Color `#38559e`
-
+`coyote` no se usa en la web. El kit solo trae pesos 400 y 700. No se usan fuentes de Google ni otras fuentes fuera del kit. El dominio `canelaelaborados.com.ar` (y `localhost` para desarrollo) deben estar autorizados en el kit, en fonts.adobe.com.

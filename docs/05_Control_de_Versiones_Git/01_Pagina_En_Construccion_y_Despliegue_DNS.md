@@ -1,4 +1,4 @@
-# Despliegue de Página en Construcción y Configuración DNS
+# Despliegue en GitHub Pages y Configuración DNS
 
 Este documento registra de forma detallada el proceso técnico, los comandos utilizados y los valores de configuración establecidos para publicar la página "En Construcción" de **Canela Elaborados** en GitHub Pages con su dominio personalizado `canelaelaborados.com.ar`.
 
@@ -16,9 +16,9 @@ Para esta página, se utilizaron los siguientes valores de la identidad visual d
 Para no interrumpir ni mezclar los archivos del desarrollo del menú interactivo (React + Vite + Tailwind CSS) con la página temporal de "En construcción", se utilizó la siguiente estrategia de ramas:
 
 1. **Rama `master`**: Rama de desarrollo activo. Contiene toda la aplicación y se edita/prueba localmente (`npm run dev`).
-2. **Rama `gh-pages`**: Rama de producción temporal. Es una rama huérfana (*orphan*) que solo contiene el archivo estático `index.html` en su raíz. GitHub Pages la lee para servir la web pública.
+2. **Rama `gh-pages`**: Rama de producción. Es una rama huérfana (*orphan*) sin el código fuente: contiene solo el contenido de `dist/` (resultado de `npm run build`). GitHub Pages la lee para servir la web pública. La página "En construcción" inicial se publicó así; el sitio definitivo se publica con el mismo mecanismo.
 
-### Comandos Git utilizados para el despliegue inicial:
+### Comandos Git utilizados para el despliegue inicial (página en construcción):
 
 ```bash
 # 1. Guardar y comitear el trabajo actual en master
@@ -81,3 +81,27 @@ En la interfaz de GitHub del repositorio (`web_menu > Settings > Pages`):
 
 > [!WARNING]
 > Cuando GitHub Pages guarda el dominio personalizado en la interfaz, genera de manera automática un archivo llamado **`CNAME`** en la rama `gh-pages`. Si en el futuro necesitas actualizar la rama de producción (`gh-pages`) de forma manual, recuerda conservar o volver a crear el archivo `CNAME` con el texto `canelaelaborados.com.ar` para que el dominio no se desconfigure.
+
+---
+
+## 🚀 Publicar una nueva versión del sitio
+
+> [!TIP]
+> Desde que el menú se edita en Excel, el camino habitual es `npm run publicar` (genera el contenido, compila y publica en `gh-pages`). Ver [Contenido del menú desde Excel](./02_Contenido_del_Menu_desde_Excel.md). Los pasos manuales siguientes quedan como alternativa.
+
+1. En `master`: `npm run build`. Verifica que `dist/` contiene `CNAME` (viene de `public/CNAME`).
+2. Publica el contenido de `dist/` en `gh-pages` sin mezclar el historial de `master`:
+   ```bash
+   git worktree add ../web_menu_gh-pages gh-pages
+   # reemplazar el contenido de ../web_menu_gh-pages por el de dist/ (conservando .git)
+   cd ../web_menu_gh-pages
+   git add -A
+   git commit -m "deploy: actualizar sitio"
+   git push origin gh-pages
+   cd ../web_menu
+   git worktree remove ../web_menu_gh-pages
+   ```
+3. Espera unos minutos y comprueba `https://canelaelaborados.com.ar`.
+
+> [!NOTE]
+> Límites del plan gratuito de GitHub Pages: sitio publicado de hasta 1 GB, unos 100 GB de transferencia al mes y unos 10 builds por hora; solo contenido estático. Ver Regla 9 de `.agents/AGENTS.md`.

@@ -1,70 +1,47 @@
-# Capítulo 2: Sistema de Diseño (Design Tokens)
+# Capítulo 2: Sistema de diseño (tokens)
 
-El sistema visual de App Canela está estructurado en base a las definiciones de marca definitivas de Canela Elaborados.
+La fuente de verdad es el bloque `@theme` de `src/index.css`; Tailwind 4 genera las utilidades (`bg-avena`, `text-azul`, `font-title`).
 
-## 1. Tipografía
+## 1. Colores
 
-Las tipografías se importan en el proyecto mediante el enlace de Adobe Typekit:
-```html
-<link rel="stylesheet" href="https://use.typekit.net/coc2fgk.css">
-```
+| Token | Valor | Uso |
+|---|---|---|
+| `avena` | `#ede4da` | Fondo base |
+| `crema` | `#f4f0ed` | Tarjetas, sección Menú, texto sobre oscuros |
+| `lavanda` | `#caa6ce` | Espacios de foto, sección Nosotros |
+| `lavanda-suave` | `#e3d3c3` | Segundo tono de la galería |
+| `lila` | `#a07fa5` | Bordes de chips y aviso |
+| `lila-deep` | `#705873` | Etiquetas y frase de marca |
+| `azul` | `#2a3e82` | Titulares, botones, pie |
+| `carbon` | `#1d1d1b` | Texto |
+| `texto-suave` | `#4a4642` | Descripciones |
+| `linea` | `#d9ccc0` | Bordes y separadores |
 
-### Roles y Familias Tipográficas:
-* **Título principal:** `optima-nova-lt-pro` (Bold, 700). Color: `#1d1d1b`
-* **Cuerpo 1 (Principal):** `optima-nova-lt-pro` (Regular, 400). Color: `#1d1d1b`
-* **Cuerpo 2 (Secundario/Lectura):** `gotham` (Medium, 500). Color: `#1d1d1b`
-* **Detalle 1 (Manuscrito):** `felt-tip-woman` (Bold, 700). Color: `#a07fa5`
-* **Detalle 2 (Llamativos/Rústico):** `coyote` (Bold / Rough, 700). Color: `#38559e`
+Las combinaciones de texto aprobadas están en la guía (00, sección 3). Los tokens de shadcn (`--primary`, `--ring`, `--border`) apuntan a estos colores.
 
-## 2. Variables CSS Globales (Tokens Oficiales)
+## 2. Tipografía
 
-A continuación se listan las variables CSS oficiales que deben utilizarse a lo largo del desarrollo:
+`font-sans` (Gotham), `font-title` (Optima Nova, peso 700), `font-hand` (Felt Tip Woman), `font-cond` (Optima Nova Cond). Todas del kit Typekit, con respaldo genérico del sistema.
 
-```css
-:root {
-    /* === Paleta de Colores === */
-    --color-bg-app:             #ede4da;  /* Fondo Crema */
-    --color-logo:               #caa6ce;  /* Lavanda del Logo */
-    --color-black:              #1d1d1b;  /* Negro de Lectura y Títulos */
-    --color-white:              #f4f0ed;  /* Blanco/Crema Claro (Superficies) */
-    --color-green:              #a69b03;  /* Verde (Acentos de éxito, orgánico) */
-    --color-red:                #ad1c4b;  /* Rojo (Acentos de error o alertas) */
-    --color-detail-1:           #a07fa5;  /* Color asociado a Detalle 1 */
-    --color-detail-2:           #38559e;  /* Color asociado a Detalle 2 */
+| Uso | Tamaño / interlineado |
+|---|---|
+| h2 de sección | 36/42 (48/54 desde 960 px) |
+| h3 de categoría | 30/36 |
+| h4 de producto (mayúsculas) | 22/28 |
+| Frase de presentación | 30/38 |
+| Cuerpo | 16/26 |
+| Descripción de producto | 14/22 |
+| Etiqueta | 12, espaciado .14em |
+| Botón | 13, espaciado .1em, mayúsculas |
 
-    /* === Tipografías (Roles de Marca) === */
-    --font-title:               "optima-nova-lt-pro", sans-serif;    /* Weight: 700 (Bold) */
-    --font-body-1:              "optima-nova-lt-pro", sans-serif;    /* Weight: 400 (Regular) */
-    --font-body-2:              "gotham", sans-serif;                /* Weight: 500 (Medium) */
-    --font-detail-1:            "felt-tip-woman", sans-serif;        /* Weight: 700 (Bold) */
-    --font-detail-2:            "coyote", sans-serif;                /* Weight: 700 (Bold) */
+## 3. Layout
 
-    /* === Espaciado === */
-    --space-unit:   8px;
-    --space-1:      8px;
-    --space-2:      16px;
-    --space-3:      24px;
-    --space-4:      32px;
-    --space-6:      48px;
+Contenedor `max-w-wrap` (1120 px), márgenes laterales de 20 px (32 px desde 640 px), secciones con `py-14` y `scroll-margin-top` de 60 px. Breakpoints: `sm` 640 px y `lg` 960 px (redefinido en `@theme`).
 
-    /* === Border Radius === */
-    --radius-sm:    4px;
-    --radius:       8px;
-    --radius-lg:    12px;
-    --radius-pill:  999px;
-}
-```
+## 4. Formas
 
-## 3. Elevación y Sombras
-
-| Nivel | Descripción | Background | Borde | Sombra |
-|---|---|---|---|---|
-| **0 — Base** | Fondo de la app | `--bg-app` (`#f4f0ed`) | — | — |
-| **1 — Cards** | Tarjetas y paneles | `--bg-surface` (`#ffffff`) | `1px solid var(--border-subtle)` | `--shadow-card` (`0 2px 4px rgba(0,0,0,0.02)`) |
-| **2 — Modales** | Diálogos, overlays | `--bg-surface` (`#ffffff`) | `1px solid var(--border-subtle)` | `--shadow-modal` (`0 12px 24px rgba(0,0,0,0.08)`) |
-
-## 4. Bordes Suaves (Border Radius)
-Se adoptan bordes redondeados suaves para dar a la aplicación un aspecto más moderno, premium y orgánico:
-- Usar `rounded-xl` (12px) o `--radius-lg` para contenedores y modales.
-- Usar `rounded-lg` (8px) o `--radius` para elementos interactivos y botones.
-- **Justificación:** Suavizan la interfaz, reducen la fatiga visual y modernizan la estética corporativa.
+- Tarjetas: radio 20 px, borde 1,5 px `linea`, fondo crema.
+- Fotos: radio 14 px, proporción 4:3.
+- Botones y chips: píldora (`rounded-full`).
+- Aviso: borde discontinuo lila de 2 px, radio 16 px.
+- Sin sombras duras.

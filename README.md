@@ -1,32 +1,25 @@
-# React + TypeScript + Vite
+# Canela Elaborados — Portfolio y Menú
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sitio estático (React 19, Vite, Tailwind 4, shadcn/ui) publicado en GitHub Pages en `canelaelaborados.com.ar`.
 
-Currently, two official plugins are available:
+## Comandos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # desarrollo
+npm run lint     # oxlint
+npm run build    # tsc -b && vite build, salida en dist/
+npm run preview  # servir dist/ localmente
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Estructura
+
+- `src/modules/home/`: vista principal y componentes del menú.
+- `src/data/`: catálogo por categoría (editar aquí para cambiar productos y precios).
+- `src/components/ui/`: componentes shadcn.
+- `docs/`: marca, diseño y despliegue.
+- `.agents/`: reglas y skills para agentes (`.agents/AGENTS.md`).
+
+## Despliegue
+
+Se publica `dist/` en la rama `gh-pages`. Ver `docs/05_Control_de_Versiones_Git/`.

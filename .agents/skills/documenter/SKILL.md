@@ -1,50 +1,50 @@
 ---
-name: Documenter
-description: A skill to act as a technical writer, responsible for reading the codebase and updating the project's markdown documentation without altering any source code.
+name: documenter
+description: Auditoría de cobertura y redacción de la documentación técnica y de usuario en docs/ de Canela Elaborados, manteniendo sincronizado docs/00_Indice_General.md. Usar cuando el usuario pida documentar una funcionalidad, actualizar manuales, auditar la cobertura documental o sincronizar el índice tras cambios de código.
+license: MIT
+metadata:
+  author: app-canela
+  version: "4.0.0"
 ---
 
-# Documenter Skill
+# Documenter (Canela Elaborados)
 
-This skill outlines the strict rules and procedures for acting as the Technical Writer for the "Canela elaborados" project. When operating under this skill, your primary goal is to keep the official documentation in sync with the codebase.
+Procedimiento para auditar, redactar y mantener sincronizada la documentación de Canela Elaborados con el código real.
 
-## When to use this skill
-Use this skill whenever the user asks you to:
-- Document a new feature, module, or database table.
-- Update the existing manuals to reflect recent code changes.
-- Generate architectural or flow documentation based on the codebase.
+## Cuándo aplicar esta habilidad
 
-## Strict Rules & Constraints
+- Auditar la cobertura de la documentación contra el código fuente.
+- Crear o actualizar documentos en `docs/` (marca, diseño, despliegue, datos del menú).
+- Sincronizar `docs/00_Indice_General.md` tras agregar o mover documentos.
+- Actualizar `docs/Changelog.md`.
 
-1. **READ-ONLY FOR CODE**: You are strictly forbidden from modifying any source code files (e.g., `.ts`, `.tsx`, `.js`, etc.). You may only use read tools (`view_file`, `list_dir`, `grep_search`) to analyze the codebase.
-2. **WRITE ALLOWED ONLY FOR DOCUMENTATION**: You are permitted to create, modify, and delete `.md` (Markdown) files exclusively within the `docs/` directory and its subdirectories.
+## Reglas Estrictas
 
-## Documentation Structure
+1. **Solo lectura sobre el código**: no modificar `src/`.
+2. **Escritura exclusiva en `docs/`**: únicamente archivos Markdown (y sus adjuntos) dentro de `docs/`.
+3. **Informes**: las auditorías de cobertura siguen la Regla 2 de `.agents/AGENTS.md`.
+4. **Estilo**: seguir el skill `writing-guidelines`.
+5. **Versiones**: al documentar librerías, citar la versión instalada según la Regla 0.
+6. **Nomenclatura**: carpetas y archivos según la Regla 5 (ISO/IEC 646, sin espacios ni tildes).
 
-You must respect and maintain the existing folder hierarchy inside the `docs/` directory. Place new files or updates in the correct manual:
+## Estructura de `docs/`
 
-- `01_Manual_Usuario/`: Functional and user-facing features (UI flows, how to use modules, business logic explanations).
-- `02_Manual_Tecnico/`: Architecture, database schemas, types, APIs, and technical decisions.
-- `03_DevOps_y_Entorno/`: Setup guides, server configuration, environment variables, and PM2/Nginx details.
-- `04_Bitacoras/`: Changelogs, design (UI/UX) logs, and historical decisions.
-- `05_Control_de_Versiones_Git/`: Git flow, deployment processes, and repository rules.
-- `06_Interfaz_Grafica/`: UI/UX design tokens, components, responsive rules and layouts.
-- `07_Informes_y_Reportes/`: Technical reports, audits, and architectural proposals.
-- `08_APIs_Externas/`: External API documentation, schemas and integration guides.
+| Carpeta | Contenido |
+|---|---|
+| `00_Indice_General.md` | Índice maestro. Se actualiza en cada cambio. |
+| `05_Control_de_Versiones_Git/` | Ramas, despliegue a GitHub Pages, DNS. |
+| `06_Interfaz_Grafica/` | Marca, sistema de diseño, componentes, responsive (cinco capítulos (00 a 04) y `README.md`). |
+| `Informes/` | Informes y auditorías fechados (Regla 2). |
+| `Registro_Errores.md`, `Changelog.md` | Registros continuos. |
 
-### The General Index
-The `00_Indice_General.md` file serves as the master index for the entire documentation folder.
-- **CRITICAL**: Every time you create a new `.md` file in any of the subdirectories, you MUST update `00_Indice_General.md` to include a link and a brief description of the new file under the corresponding section.
+## Flujo de Trabajo
 
-## Workflow
+1. **Brechas**: compara `src/` (módulos, componentes, `src/data/`) y `src/index.css` (tokens) con lo documentado en `docs/`.
+2. **Redacción**: tablas descriptivas, bloques de código con lenguaje, estilo de `writing-guidelines`.
+3. **Trazabilidad**: todo componente transversal, token o proceso de despliegue nuevo debe aparecer en `docs/`.
+4. **Sincronización del índice (crítico)**: actualizar `docs/00_Indice_General.md`.
 
-When asked to update documentation:
-1. **Analyze**: Use `grep_search` or `view_file` to read the relevant source code (e.g., the new component, API route, or SQL schema).
-2. **Determine Location**: Decide which manual (01 to 08) the documentation belongs in.
-3. **Draft**: Create or update the `.md` file in the chosen directory. Use clear, professional language. Use Markdown features like tables, code blocks, and lists to improve readability.
-4. **Update Index**: Update `docs/00_Indice_General.md` to reflect any new files.
-5. **Report**: Inform the user what files were modified and what new documentation was generated.
+## Referencias
 
-## Documentación de Referencia
-
-Cuando el contexto de la tarea lo requiera, asegúrate de consultar los siguientes manuales en el directorio `docs/`:
-- `00_Indice_General.md`: Para ver qué manuales ya existen antes de crear uno nuevo y evitar duplicar el esfuerzo.
+- `docs/00_Indice_General.md`: índice maestro.
+- Skill `writing-guidelines`.

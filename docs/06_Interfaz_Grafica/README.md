@@ -1,14 +1,13 @@
-# Documentación de la Interfaz Gráfica (UI/UX) - App Canela
+# Interfaz Gráfica — Canela Elaborados
 
-Esta carpeta contiene la documentación exhaustiva sobre la arquitectura, diseño y desarrollo de la interfaz gráfica de App Canela ("Canela Elaborados"). 
+Guías de identidad visual, tokens, componentes y reglas responsive del sitio. Los valores reales de color, tipografía y espaciado viven en `src/index.css` (`@theme`); si un capítulo difiere, manda el código y el capítulo debe actualizarse.
 
-La documentación ha sido dividida en capítulos para facilitar su lectura y consulta durante el desarrollo de nuevos componentes o la modificación de los existentes.
+## Capítulos
 
-## Índice de Capítulos
+0. [Guía de diseño web (referencia canónica)](./00_Guia_de_Diseno_Web.md)
+1. [Manual de Marca](./01_Manual_de_Marca.md)
+2. [Sistema de Diseño (tokens)](./02_Sistema_de_Diseno.md)
+3. [Componentes y datos del menú](./03_Componentes_Basicos_UI.md)
+4. [Reglas Responsive y Mobile First](./04_Reglas_Responsive_y_Mobile_First.md)
 
-1. [Manual de Marca / Identidad Visual](./01_Manual_de_Marca.md)
-2. [Sistema de Diseño (Design Tokens)](./02_Sistema_de_Diseno.md)
-3. [Componentes Básicos (UI)](./03_Componentes_Basicos_UI.md)
-4. [Tablas y Listados de Datos](./04_Tablas_y_Listados.md)
-5. [Modales y Overlays](./05_Modales_y_Overlays.md)
-6. [Reglas de Diseño Responsive y Mobile First](./08_Reglas_Responsive_y_Mobile_First.md)
+`Canela_PruebasDeMarca_V3_CorrecionesFinales_Mesa10.pdf` es la prueba de marca original (referencia visual).
