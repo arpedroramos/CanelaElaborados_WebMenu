@@ -8,7 +8,8 @@
     "build": "npm run validar && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && tsx scripts/prerender.ts",
     "lint": "oxlint",
     "validar": "tsx scripts/validar-menu.ts && tsx scripts/validar-destacados.ts",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "auditar": "tsx scripts/auditar.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

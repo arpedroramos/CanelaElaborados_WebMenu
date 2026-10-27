@@ -43,6 +43,9 @@ jobs:
           test -f dist/404.html
           test -f dist/privacidad/index.html
           test -f dist/terminos/index.html
+      - name: Auditar SEO y rendimiento (informativo)
+        run: npm run auditar
+        continue-on-error: true
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

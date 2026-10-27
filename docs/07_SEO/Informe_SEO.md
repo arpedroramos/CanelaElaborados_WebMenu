@@ -4,6 +4,8 @@ Fecha de la auditoría: 2026-10-26 · Rama: `desarrollo` · Sitio: `https://cane
 
 Leyenda de estado: ✔ está bien · ⚠ parcial · ✘ falta. Prioridad: **P1** rápido y de alto impacto · **P2** importante · **P3** mejora posterior.
 
+> **Las tablas de las secciones 2 a 6 muestran el estado de la auditoría original (2026-10-26).** Lo corregido después está en la [sección 10](#10-estado-de-las-correcciones).
+
 ## 1. Resumen ejecutivo
 
 El sitio tiene una base sana (HTML semántico, mobile-first, imágenes WebP livianas, HTTPS), pero **hoy Google casi no puede ver ni entender el negocio**: es una página única que se dibuja con JavaScript, sin `robots.txt`, sin `sitemap.xml`, sin datos estructurados, con la sección de tortas escondida detrás de un `#` y con textos de relleno ("Lorem ipsum") en el menú. Además **no existe política de privacidad** ni ninguna página legal.
@@ -140,3 +142,31 @@ Las URLs son las rutas habituales de cada producto; confirmarlas al abrirlas, po
 - **Rich Results Test** sobre la portada.
 - **Google Business Profile:** vistas, llamadas, clics a WhatsApp.
 - Búsquedas de control: "pastelería artesanal La Plata", "tortas personalizadas La Plata", "box desayuno La Plata".
+
+## 10. Estado de las correcciones
+
+Actualizado 2026-10-27 · commits en `desarrollo` (sin push).
+
+**Hecho en código:**
+
+| Hallazgo | Corrección |
+|---|---|
+| `robots.txt`, `sitemap.xml` (con fotos del menú), `404.html` | `scripts/prerender.ts`; el workflow verifica que existan |
+| Canonical, `og:url`, `og:image`, `twitter:card`, título y descripción con La Plata | `index.html` + `src/data/rutas.ts` (cada ruta con su título y descripción) |
+| JSON-LD (`Bakery`, `Menu`, ofertas en ARS, `BreadcrumbList`) | `src/lib/jsonld.ts`, inyectado en el build; omite las descripciones «Lorem» |
+| Contenido visible sin JavaScript | HTML prerenderizado por ruta (`react-dom/server`) |
+| Rutas con `#` | Rutas reales (`/privacidad/`, `/terminos/`, `/tortas-personalizadas/`); el hash viejo redirige |
+| Typekit bloqueante | Carga asíncrona con `<noscript>` |
+| Jerarquía de títulos | `h1` con La Plata, `h2` «Menú», `h3` en el pie |
+| Política de privacidad, términos | `/privacidad/` y `/terminos/` (borrador: validar con un profesional) |
+| Preguntas frecuentes | Sección con pestaña propia (faltan alérgenos y conservación) |
+| Archivos sueltos | Movidos a `docs/archivo/prototipos/` |
+| Medición | `npm run auditar` (Lighthouse móvil) y paso informativo en el workflow |
+
+Lighthouse local (móvil, 2026-10-27): SEO 100 · Rendimiento 98 · Accesibilidad 100 · Buenas prácticas 100.
+
+**Pendiente, con tarea del usuario:** Google Business Profile, Search Console (verificar y enviar el sitemap **después** de pasar `VITE_EN_CONSTRUCCION=false`), enlace en la bio de Instagram, directorios y reseñas, reemplazar los 12 «Lorem ipsum», contenido de la página de tortas personalizadas (después pasar `indexar: true` en `src/data/rutas.ts`), alérgenos y conservación, horarios, validar el JSON-LD con el Rich Results Test una vez publicado.
+
+**Pendiente con AppGestion (sesión aparte):** que `imgAlt` sea `"{producto} – Canela Elaborados"` (≤ 125) en vez de repetir la descripción.
+
+**Pendiente menor:** `alt` descriptivos del portfolio de tortas (`src/data/trabajos.ts`) cuando se carguen las fotos; datos de precio/horario en JSON-LD si se quieren mostrar.
