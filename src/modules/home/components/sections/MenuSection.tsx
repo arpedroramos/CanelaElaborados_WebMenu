@@ -59,6 +59,7 @@ export const MenuSection = () => {
   return (
     <section id="menu" className="scroll-mt-12 bg-crema py-8 sm:py-14">
       <div className="mx-auto max-w-wrap px-5 sm:px-8">
+        <h2 className="sr-only">Menú</h2>
         <MenuTabs categories={CATEGORIES} activeId={activeId} onChange={cambiarCategoria} />
         <div
           role="tabpanel"

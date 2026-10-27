@@ -28,7 +28,7 @@ export const ContactFooter = () => (
           </div>
         </div>
         <div>
-          <h4 className={headingClass}>Contacto</h4>
+          <h3 className={headingClass}>Contacto</h3>
           <ul className="m-0 list-none p-0 text-[15px]">
             <li className="mb-2">
               <a className={linkClass} href={buildWhatsAppUrl()} {...external}>
@@ -41,7 +41,7 @@ export const ContactFooter = () => (
               </a>
             </li>
           </ul>
-          <h4 className={`${headingClass} mt-6`}>Ubicación</h4>
+          <h3 className={`${headingClass} mt-6`}>Ubicación</h3>
           <p className="text-[15px]">{CONTACTO.ubicacion}</p>
         </div>
       </div>
