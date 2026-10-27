@@ -37,10 +37,10 @@ Flujo controlado para registrar commits y publicar el sitio, garantizando que to
 - **Header**: `<tipo>(<alcance>): <resumen>`, máximo 72 caracteres. Tipos: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `build`, `chore`.
 - Línea en blanco, luego viñetas archivo por archivo:
   ```text
-  feat(menu): agregar categoría de alfajores
+  feat(menu): leer el menú desde data/menu.json
 
-  - src/data/archivo/alfajores.ts: catálogo de alfajores.
-  - src/modules/home/components/sections/MenuSection.tsx: nueva categoría en el menú.
+  - src/data/menu.ts: lectura del menú desde data/menu.json.
+  - src/modules/home/components/sections/MenuSection.tsx: mostrar las categorías leídas.
   ```
 - Si cambian dependencias, actualiza la tabla de la Regla 0 en `.agents/AGENTS.md` en el mismo commit.
 
