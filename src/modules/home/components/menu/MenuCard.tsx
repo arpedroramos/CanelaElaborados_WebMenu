@@ -1,10 +1,13 @@
 import { buttonClass } from '@/components/ui/button';
 import type { MenuItem } from '@/data/menu_types';
-import { buildOrderUrl } from '@/lib/whatsapp';
+import { keyDe, useConsulta } from '../../consulta/ConsultaContext';
+import { StepperCantidad } from './StepperCantidad';
 
-const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
+export const MenuCard = ({ item }: { item: MenuItem }) => {
+  const { cantidadDe, agregar, cambiar } = useConsulta();
+  const simple = cantidadDe(keyDe(item.title));
 
-export const MenuCard = ({ item }: { item: MenuItem }) => (
+  return (
   <article className="rounded-[20px] border-[1.5px] border-linea bg-crema p-5 text-center">
     <div className="mb-3.5 aspect-[3/4] overflow-hidden rounded-[14px] bg-lavanda">
       {item.imgSrc && (
@@ -24,27 +27,44 @@ export const MenuCard = ({ item }: { item: MenuItem }) => (
     <p className="mt-1 text-sm leading-[22px] text-texto-suave">{item.description}</p>
     {item.price && <p className="mt-1 text-sm font-bold text-lila-deep">{item.price}</p>}
     {item.options && (
-      <div className="mt-3 flex flex-wrap justify-center gap-2">
-        {item.options.map((option) => (
-          <a
-            key={option.label}
-            className={buttonClass({ variant: 'chip', size: 'chip' })}
-            href={buildOrderUrl(option.order ?? option.label)}
-            {...external}
-          >
-            {option.label}
-          </a>
-        ))}
-      </div>
+      <>
+        <p className="mt-3 text-xs font-bold tracking-[0.14em] text-lila-deep uppercase">Opciones</p>
+        <div className="mt-2 flex flex-col items-center gap-2">
+          {item.options.map((option) => {
+            const key = keyDe(item.title, option.label);
+            const cantidad = cantidadDe(key);
+            return (
+              <div key={option.label} className="flex flex-wrap items-center justify-center gap-2">
+                <button
+                  type="button"
+                  className={buttonClass({ variant: 'chip', size: 'chip' })}
+                  onClick={() => agregar(item, option.label)}
+                >
+                  {option.label}
+                </button>
+                {cantidad > 0 && (
+                  <StepperCantidad
+                    cantidad={cantidad}
+                    nombre={`${item.title} ${option.label}`}
+                    onChange={(delta) => cambiar(key, delta)}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </>
     )}
-    {item.order && (
-      <a
-        className="mt-1.5 inline-flex min-h-11 items-center text-[13px] font-bold tracking-[0.04em] text-azul underline underline-offset-4 outline-none hover:text-carbon focus-visible:ring-3 focus-visible:ring-lavanda"
-        href={buildOrderUrl(item.order)}
-        {...external}
-      >
-        {item.cta ?? 'Pedir'}
-      </a>
-    )}
+    {!item.options &&
+      (simple > 0 ? (
+        <div className="mt-2">
+          <StepperCantidad cantidad={simple} nombre={item.title} onChange={(delta) => cambiar(item.title, delta)} />
+        </div>
+      ) : (
+        <button type="button" className={`mt-2 ${buttonClass({ variant: 'azul', size: 'pill-sm' })}`} onClick={() => agregar(item)}>
+          {item.cta ?? 'Agregar'}
+        </button>
+      ))}
   </article>
-);
+  );
+};
