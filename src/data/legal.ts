@@ -1,6 +1,6 @@
 import { CONTACTO } from './contacto';
 
-export interface SeccionLegal {
+interface SeccionLegal {
   titulo: string;
   parrafos: readonly string[];
 }
