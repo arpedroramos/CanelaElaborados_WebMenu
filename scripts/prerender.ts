@@ -16,6 +16,7 @@ interface Ruta {
 interface ModuloServidor {
   render: (path: string) => string;
   imagenesMenu: () => string[];
+  jsonLdDe: (path: string) => object[];
   RUTAS: readonly Ruta[];
   SITIO: { url: string; nombre: string };
 }
@@ -29,7 +30,7 @@ if (!existsSync(join(dist, 'index.html')) || !existsSync(servidor)) {
   process.exit(1);
 }
 
-const { render, imagenesMenu, RUTAS, SITIO } = (await import(pathToFileURL(servidor).href)) as ModuloServidor;
+const { render, imagenesMenu, jsonLdDe, RUTAS, SITIO } = (await import(pathToFileURL(servidor).href)) as ModuloServidor;
 const enConstruccion = loadEnv('production', raiz, 'VITE_').VITE_EN_CONSTRUCCION === 'true';
 const plantilla = readFileSync(join(dist, 'index.html'), 'utf-8');
 
@@ -63,6 +64,12 @@ const armarPagina = (pagina: Pagina): string => {
   html = reemplazar(html, /<meta property="og:url" content="[^"]*" \/>/, pagina.sinCanonical ? '' : `<meta property="og:url" content="${url}" />`);
   if (!pagina.indexar || enConstruccion) {
     html = reemplazar(html, /<\/head>/, '    <meta name="robots" content="noindex" />\n  </head>');
+  }
+  // Datos estructurados; el `<` va escapado para que ningún texto cierre el script.
+  const datos = enConstruccion ? [] : jsonLdDe(pagina.path);
+  for (const dato of datos) {
+    const json = JSON.stringify(dato).replaceAll('<', '\\u003c');
+    html = reemplazar(html, /<\/head>/, `    <script type="application/ld+json">${json}</script>\n  </head>`);
   }
   return reemplazar(html, /<div id="root"><\/div>/, `<div id="root">${render(pagina.path)}</div>`);
 };

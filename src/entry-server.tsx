@@ -18,4 +18,5 @@ export const imagenesMenu = (): string[] =>
     (src): src is string => Boolean(src),
   );
 
+export { jsonLdDe } from './lib/jsonld';
 export { RUTAS, SITIO };
