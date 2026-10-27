@@ -41,6 +41,8 @@ export const ContactFooter = () => (
               </a>
             </li>
           </ul>
+          <h4 className={`${headingClass} mt-6`}>Ubicación</h4>
+          <p className="text-[15px]">{CONTACTO.ubicacion}</p>
         </div>
       </div>
     </div>
