@@ -11,9 +11,9 @@ import { WorksSection } from '../components/sections/WorksSection';
 
 export const HomeView = () => (
   <ConsultaProvider>
-    <header id="inicio" className="flex flex-col items-center gap-2 px-5 pt-6 pb-4 sm:px-8">
+    <header id="inicio" className="flex flex-col items-center gap-1 px-5 pt-4 pb-3 sm:gap-2 sm:px-8 sm:pt-6 sm:pb-4">
       <img src={logoCanela} alt="Canela" width={702} height={175.5} className="h-11 w-auto sm:h-14" />
-      <p className="font-hand text-[22px] leading-[26px] tracking-[0.06em] text-lila-deep uppercase">
+      <p className="font-hand text-lg leading-[22px] sm:text-[22px] sm:leading-[26px] tracking-[0.06em] text-lila-deep uppercase">
         Artesanal · Calidad · Delicado
       </p>
     </header>
