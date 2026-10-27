@@ -5,6 +5,7 @@ import { ConsultaBar } from '../components/layout/ConsultaBar';
 import { ContactFooter } from '../components/layout/ContactFooter';
 import { SectionTabs } from '../components/layout/SectionTabs';
 import { AboutSection } from '../components/sections/AboutSection';
+import { FaqSection } from '../components/sections/FaqSection';
 import { Hero } from '../components/sections/Hero';
 import { MenuSection } from '../components/sections/MenuSection';
 import { WorksSection } from '../components/sections/WorksSection';
@@ -23,6 +24,7 @@ export const HomeView = () => (
       {HAY_MENU && <MenuSection />}
       <WorksSection />
       <AboutSection />
+      <FaqSection />
     </main>
     <ContactFooter />
     <ConsultaBar />

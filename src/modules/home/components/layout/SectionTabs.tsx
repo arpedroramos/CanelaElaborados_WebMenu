@@ -5,6 +5,7 @@ const TABS = [
   ...(HAY_MENU ? [{ href: '#menu', label: 'Menú' }] : []),
   { href: '#trabajos', label: 'Tortas personalizadas' },
   { href: '#nosotros', label: 'Nosotros' },
+  { href: '#preguntas', label: 'Preguntas' },
   { href: '#contacto', label: 'Contacto' },
 ];
 
