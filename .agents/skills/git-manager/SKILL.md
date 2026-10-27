@@ -53,7 +53,7 @@ Tras la confirmación: `git add` de los archivos listados y `git commit`. Haz pu
 ## Flujo de Despliegue (GitHub Actions)
 
 1. Verifica que el árbol esté limpio y ejecuta `npm run build` sin errores (revisión previa con el skill `code-auditor`).
-2. Revisa `.env`: `VITE_EN_CONSTRUCCION` decide si el sitio real muestra el menú o "en construcción"; un merge a `main` no debe cambiarlo sin querer.
+2. Revisa `data/sitio.json`: `enConstruccion` decide si el sitio real muestra el menú o "en construcción"; un merge a `main` no debe cambiarlo sin querer.
 3. Presenta al usuario el merge o push a `main` antes de hacerlo: dispara el despliegue de inmediato. No hay que publicar `dist/` a mano.
 4. Sigue el workflow **Deploy** en la pestaña Actions (`build` y `deploy` en verde; si `build` falla, el sitio no cambia).
 5. Confirma el resultado en `https://canelaelaborados.com.ar` (tarda 1–2 minutos). Para volver atrás: revertir el commit en `main`.

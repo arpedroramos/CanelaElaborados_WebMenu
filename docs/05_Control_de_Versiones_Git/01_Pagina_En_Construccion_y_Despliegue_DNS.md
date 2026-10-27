@@ -15,7 +15,7 @@ Cómo se publica **Canela Elaborados** en GitHub Pages con su dominio `canelaela
 
 | Rama | Uso | ¿Despliega? |
 | :--- | :--- | :--- |
-| `main` | Producción. Cada push que cambie `data/`, `public/`, `src/`, `scripts/`, `package*.json`, `index.html`, `vite.config.ts`, `.env` o el workflow dispara el despliegue. | Sí |
+| `main` | Producción. Cada push que cambie `data/`, `public/`, `src/`, `scripts/`, `package*.json`, `index.html`, `vite.config.ts` o el workflow dispara el despliegue. | Sí |
 | `desarrollo` | Trabajo de código. | No |
 | `menu-test` | Pruebas de publicación desde la app. | No |
 
@@ -25,11 +25,13 @@ La rama `gh-pages` y el publicador manual (`npm run publicar`) ya no existen.
 
 ### Modo "en construcción"
 
-`.env` (versionado) define `VITE_EN_CONSTRUCCION`:
-- `true`: el sitio muestra "Sitio en construcción".
+`data/sitio.json` (versionado) define `enConstruccion`:
+- `true`: el sitio muestra "Sitio en construcción", con `noindex`, `robots.txt` con `Disallow: /` y sin sitemap.
 - `false`: el sitio muestra el menú.
 
-Se decide al compilar: cambiarlo en `main` dispara un despliegue. **Al mergear una rama a `main`, revisar el valor de `.env`** para no cambiar el modo del sitio real sin querer.
+Se decide al compilar: cambiarlo en `main` dispara un despliegue (1–2 minutos hasta verlo). Se puede editar a mano o, cuando exista, desde la app (Ajustes › Web Menu). `npm run validar` falla si el archivo falta o `enConstruccion` no es `true`/`false`. **Al mergear una rama a `main`, revisar el valor de `data/sitio.json`** para no cambiar el modo del sitio real sin querer.
+
+Para ver el menú en la PC sin tocar el archivo: crear `.env.local` (ignorado por git) con `VITE_EN_CONSTRUCCION=false`; si esa variable existe, manda sobre `data/sitio.json`.
 
 ---
 

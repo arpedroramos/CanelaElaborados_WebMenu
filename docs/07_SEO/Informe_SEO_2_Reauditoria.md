@@ -29,7 +29,7 @@ Medición local (Lighthouse móvil): **SEO 100 · Rendimiento 98 · Accesibilida
 | JSON-LD | ✔ | `Bakery` + `Menu` + ofertas ARS en la portada; `BreadcrumbList` en legales | — |
 | `noindex` donde corresponde | ✔ | `/tortas-personalizadas/` y 404 | — |
 | Imagen social y Open Graph | ✔ | `og-canela-elaborados.png` 1200×630 | — |
-| **Sitio en modo construcción en `main`** | ⚠ | con `VITE_EN_CONSTRUCCION=true` todo queda `noindex` y sin sitemap: correcto hoy, pero hay que apagarlo al lanzar | **P1** |
+| **Sitio en modo construcción en `main`** | ⚠ | con `enConstruccion: true` en `data/sitio.json` todo queda `noindex` y sin sitemap: correcto hoy, pero hay que apagarlo al lanzar | **P1** |
 | Validación del JSON-LD en el Rich Results Test | ⚠ | solo se puede con el sitio publicado | P1 |
 | Search Console verificado + sitemap enviado | ✘ | tarea manual | P1 |
 | `www` → dominio sin `www`, «Enforce HTTPS» en Pages | ⚠ | no verificable desde el código: revisar en GitHub Pages y Cloudflare | P2 |
@@ -105,7 +105,7 @@ Todo depende de ti; el sitio ya está preparado (JSON-LD con `sameAs`, datos de 
 1. Cargar descripciones reales (reemplaza los 12 «Lorem ipsum» y limpia los `alt`).
 2. Dejar `data/destacados.json` en `[]` o con contenido real.
 3. Revisar textos legales con un profesional.
-4. Pasar `VITE_EN_CONSTRUCCION=false` en `main` y publicar.
+4. Pasar `enConstruccion` a `false` en `data/sitio.json` de `main` (o desde la app) y publicar.
 5. Search Console: verificar el dominio, enviar `sitemap.xml`, probar el JSON-LD en el Rich Results Test.
 6. Crear la ficha de Google Business Profile y pedir las primeras reseñas.
 7. Cargar fotos y texto de tortas personalizadas y pasar `indexar: true`.

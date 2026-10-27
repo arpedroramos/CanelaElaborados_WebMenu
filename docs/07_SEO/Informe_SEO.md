@@ -37,7 +37,7 @@ El sitio tiene una base sana (HTML semántico, mobile-first, imágenes WebP livi
 | Archivos sueltos que podrían quedar publicados | ⚠ | `desktop.html`, `screen.html`, `temp_under_construction/` en la raíz | P3 | Bajo |
 | Medición (Search Console, Lighthouse) | ✘ | sin verificación del sitio ni auditoría automática | P1 | Bajo |
 
-**Nota sobre el estado "en construcción":** `VITE_EN_CONSTRUCCION` en `.env` decide si se publica el sitio real. Mientras esté activo, Google indexa la pantalla de construcción (título "Canela - Sitio en Construcción"). Conviene activar el sitio real antes de enviar el sitemap.
+**Nota sobre el estado "en construcción":** `enConstruccion` en `data/sitio.json` decide si se publica el sitio real. Mientras esté activo, Google indexa la pantalla de construcción (título "Canela - Sitio en Construcción"). Conviene activar el sitio real antes de enviar el sitemap.
 
 ## 3. SEO On-Page
 
@@ -165,7 +165,7 @@ Actualizado 2026-10-27 · commits en `desarrollo` (sin push).
 
 Lighthouse local (móvil, 2026-10-27): SEO 100 · Rendimiento 98 · Accesibilidad 100 · Buenas prácticas 100.
 
-**Pendiente, con tarea del usuario:** Google Business Profile, Search Console (verificar y enviar el sitemap **después** de pasar `VITE_EN_CONSTRUCCION=false`), enlace en la bio de Instagram, directorios y reseñas, reemplazar los 12 «Lorem ipsum», contenido de la página de tortas personalizadas (después pasar `indexar: true` en `src/data/rutas.ts`), alérgenos y conservación, horarios, validar el JSON-LD con el Rich Results Test una vez publicado.
+**Pendiente, con tarea del usuario:** Google Business Profile, Search Console (verificar y enviar el sitemap **después** de pasar `enConstruccion` a `false`), enlace en la bio de Instagram, directorios y reseñas, reemplazar los 12 «Lorem ipsum», contenido de la página de tortas personalizadas (después pasar `indexar: true` en `src/data/rutas.ts`), alérgenos y conservación, horarios, validar el JSON-LD con el Rich Results Test una vez publicado.
 
 **Pendiente con AppGestion (sesión aparte):** que `imgAlt` sea `"{producto} – Canela Elaborados"` (≤ 125) en vez de repetir la descripción.
 
