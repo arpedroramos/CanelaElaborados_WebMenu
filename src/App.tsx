@@ -27,8 +27,8 @@ function App() {
     document.title = enConstruccion
       ? 'Canela - Sitio en Construcción'
       : enTortas
-        ? 'Tortas personalizadas — Canela'
-        : 'Canela — Pastelería artesanal';
+        ? 'Tortas personalizadas — Canela Elaborados'
+        : 'Canela Elaborados — Pastelería artesanal en La Plata';
   }, [enTortas]);
 
   if (enConstruccion) return <ConstruccionView />;
