@@ -7,9 +7,11 @@ import { MenuCard } from '../menu/MenuCard';
 import { ALL_ID, MenuTabs } from '../menu/MenuTabs';
 
 const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; showDivider: boolean }) => (
-  <div className={showDivider ? 'mb-12 last:mb-0' : undefined}>
-    <div className="mb-5 text-center">
-      <h3 className="font-title text-[30px] leading-[36px] font-bold text-azul">{category.title}</h3>
+  <div className={showDivider ? 'mb-8 last:mb-0 sm:mb-12' : undefined}>
+    <div className="mb-3 text-center sm:mb-5">
+      <h3 className="font-title text-2xl leading-[30px] font-bold text-azul sm:text-[30px] sm:leading-[36px]">
+        {category.title}
+      </h3>
       <p className="text-sm text-texto-suave">
         {category.note}
         {category.priceNote && (
@@ -20,7 +22,7 @@ const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; show
         )}
       </p>
     </div>
-    <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+    <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
       {category.items.map((item) => (
         <div key={item.title} className="w-full sm:w-[calc((100%-2rem)/3)]">
           <MenuCard item={item} />
@@ -48,10 +50,16 @@ export const MenuSection = () => {
   const category = CATEGORIES.find((item) => item.id === activeId);
   const visible = isAll || !category ? CATEGORIES : [category];
 
+  const cambiarCategoria = (id: string) => {
+    setActiveId(id);
+    const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('menu')?.scrollIntoView({ behavior: quieto ? 'auto' : 'smooth' });
+  };
+
   return (
-    <section id="menu" className="bg-crema py-14">
+    <section id="menu" className="scroll-mt-12 bg-crema py-8 sm:py-14">
       <div className="mx-auto max-w-wrap px-5 sm:px-8">
-        <MenuTabs categories={CATEGORIES} activeId={activeId} onChange={setActiveId} />
+        <MenuTabs categories={CATEGORIES} activeId={activeId} onChange={cambiarCategoria} />
         <div
           role="tabpanel"
           id={`panel-${category?.id ?? ALL_ID}`}

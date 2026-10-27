@@ -33,13 +33,13 @@ export const ConsultaBar = () => {
 
   return (
     <>
-    <div aria-hidden="true" className="h-44 sm:h-24" />
+    <div aria-hidden="true" className="h-40 sm:h-24" />
     <div
       role="region"
       aria-label="Tu consulta"
       className="fixed inset-x-0 bottom-0 z-50 border-t-[1.5px] border-linea bg-crema pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_rgba(0,0,0,0.08)]"
     >
-      <div className="mx-auto flex max-w-wrap flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:gap-5 sm:px-8">
+      <div className="mx-auto flex max-w-wrap flex-col gap-2 px-5 py-2 sm:flex-row sm:items-center sm:gap-5 sm:px-8">
         <div className="flex items-center justify-between gap-4 sm:block sm:min-w-44">
           <p className="text-sm font-bold text-carbon" aria-live="polite">
             {totalUnidades} {totalUnidades === 1 ? 'producto' : 'productos'}
