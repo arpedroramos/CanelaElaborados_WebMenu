@@ -1,5 +1,6 @@
 import { buttonClass } from '@/components/ui/button';
 import { CONTACTO } from '@/data/contacto';
+import { HAY_MENU } from '@/data/menu';
 import { buildOrderUrl, buildWhatsAppUrl } from '@/lib/whatsapp';
 
 const linkClass = 'outline-none hover:text-lavanda focus-visible:ring-3 focus-visible:ring-lavanda';
@@ -50,9 +51,11 @@ export const ContactFooter = () => (
         <div>
           <h4 className={headingClass}>Secciones</h4>
           <ul className="m-0 list-none p-0 text-[15px]">
-            <li className="mb-2">
-              <a className={linkClass} href="#menu">Menú</a>
-            </li>
+            {HAY_MENU && (
+              <li className="mb-2">
+                <a className={linkClass} href="#menu">Menú</a>
+              </li>
+            )}
             <li className="mb-2">
               <a className={linkClass} href="#trabajos">Trabajos</a>
             </li>

@@ -1,0 +1,96 @@
+[
+  {
+    "id": "cereales",
+    "label": "Cereales",
+    "title": "Cereales",
+    "note": "",
+    "items": [
+      {
+        "title": "Almohaditas de chocolate x 50g",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat",
+        "imgSrc": "/img/menu/almohaditas-de-chocolate-x-50g-canela-elaborados.webp",
+        "imgAlt": "Almohaditas de chocolate x 50g – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit i… – Canela Elaborados",
+        "imgWidth": 533,
+        "imgHeight": 800,
+        "price": "$3.500"
+      },
+      {
+        "title": "Almohaditas de frutilla x 50g",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat",
+        "imgSrc": "/img/menu/almohaditas-de-frutilla-x-50g-canela-elaborados.webp",
+        "imgAlt": "Almohaditas de frutilla x 50g – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id… – Canela Elaborados",
+        "imgWidth": 640,
+        "imgHeight": 800,
+        "price": "$3.500"
+      }
+    ]
+  },
+  {
+    "id": "desayunos",
+    "label": "Desayunos",
+    "title": "Desayunos",
+    "note": "",
+    "items": [
+      {
+        "title": "Box desayuno grande",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat. Cras posuere velit dolor, vel varius est elementum et. Nam euismod auctor nisl sit amet sollicitudin. Morbi non sapien eleifend, pretium ex id, egestas lacus. Ut maximus metus non faucibus tincidunt. Nullam pulvinar orci ac mauris vulputate luctus. Vestib",
+        "imgSrc": "/img/menu/box-desayuno-grande-canela-elaborados.webp",
+        "imgAlt": "Box desayuno grande – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus veh… – Canela Elaborados",
+        "imgWidth": 640,
+        "imgHeight": 800,
+        "price": "$40.000"
+      },
+      {
+        "title": "Box día de la madre - chica",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat",
+        "imgSrc": "/img/menu/box-dia-de-la-madre-chica-canela-elaborados.webp",
+        "imgAlt": "Box día de la madre - chica – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id r… – Canela Elaborados",
+        "imgWidth": 640,
+        "imgHeight": 800,
+        "options": [
+          {
+            "label": "Cheesecake – $25.000"
+          },
+          {
+            "label": "Keylimepie – $25.000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "panes",
+    "label": "Panes",
+    "title": "Panes",
+    "note": "",
+    "items": [
+      {
+        "title": "Pan dulce con chips x 500g",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat. Cras posuere velit dolor, vel varius est elementum et. Nam euismod auctor nisl sit amet sollicitudin. Morbi non sapien eleifend, pretium ex id, egestas lacus. Ut maximus metus non faucibus tincidunt. Nullam pulvinar orci ac mauris vulputate luctus. Vestib",
+        "imgSrc": "/img/menu/pan-dulce-con-chips-x-500g-canela-elaborados.webp",
+        "imgAlt": "Pan dulce con chips x 500g – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id ri… – Canela Elaborados",
+        "imgWidth": 640,
+        "imgHeight": 800,
+        "price": "$9.000"
+      },
+      {
+        "title": "Pan integral",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat. Cras posuere velit dolor, vel varius est elementum et. Nam euismod auctor nisl sit amet sollicitudin. Morbi non sapien eleifend, pretium ex id, egestas lacus. Ut maximus metus non faucibus tincidunt. Nullam pulvinar orci ac mauris vulputate luctus. Vestib",
+        "imgSrc": "/img/menu/pan-integral-canela-elaborados.webp",
+        "imgAlt": "Pan integral – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula u… – Canela Elaborados",
+        "imgWidth": 640,
+        "imgHeight": 800,
+        "price": "$6.500"
+      },
+      {
+        "title": "Pan lactal",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ullamcorper. Nulla pulvinar iaculis sem auctor volutpat",
+        "imgSrc": "/img/menu/pan-lactal-canela-elaborados.webp",
+        "imgAlt": "Pan lactal – Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in elit id risus vehicula ull… – Canela Elaborados",
+        "imgWidth": 600,
+        "imgHeight": 800,
+        "price": "$6.500"
+      }
+    ]
+  }
+]

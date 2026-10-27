@@ -1,6 +1,8 @@
+import { HAY_MENU } from '@/data/menu';
+
 const TABS = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#menu', label: 'Menú' },
+  ...(HAY_MENU ? [{ href: '#menu', label: 'Menú' }] : []),
   { href: '#trabajos', label: 'Trabajos' },
   { href: '#nosotros', label: 'Nosotros' },
   { href: '#contacto', label: 'Contacto' },
