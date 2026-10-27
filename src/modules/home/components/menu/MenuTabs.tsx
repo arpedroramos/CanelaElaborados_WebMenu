@@ -21,7 +21,7 @@ export const MenuTabs = ({ categories: base, activeId, onChange }: MenuTabsProps
   };
 
   return (
-    <div role="tablist" aria-label="Categorías del menú" className="mb-6 flex flex-wrap gap-2">
+    <div role="tablist" aria-label="Categorías del menú" className="mb-6 flex flex-wrap justify-center gap-2">
       {categories.map((category, index) => {
         const isActive = category.id === activeId;
         return (

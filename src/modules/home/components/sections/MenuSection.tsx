@@ -5,11 +5,10 @@ import type { MenuCategory } from '@/data/menu_types';
 import { buildOrderUrl } from '@/lib/whatsapp';
 import { MenuCard } from '../menu/MenuCard';
 import { ALL_ID, MenuTabs } from '../menu/MenuTabs';
-import { SectionHeading } from './SectionHeading';
 
 const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; showDivider: boolean }) => (
   <div className={showDivider ? 'mb-12 last:mb-0' : undefined}>
-    <div className="mb-5">
+    <div className="mb-5 text-center">
       <h3 className="font-title text-[30px] leading-[36px] font-bold text-azul">{category.title}</h3>
       <p className="text-sm text-texto-suave">
         {category.note}
@@ -21,13 +20,15 @@ const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; show
         )}
       </p>
     </div>
-    <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+    <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
       {category.items.map((item) => (
-        <MenuCard key={item.title} item={item} />
+        <div key={item.title} className="w-full sm:w-[calc((100%-2rem)/3)]">
+          <MenuCard item={item} />
+        </div>
       ))}
     </div>
     {category.footerCta && (
-      <div className="mt-6">
+      <div className="mt-6 flex justify-center">
         <a
           className={buttonClass({ variant: 'azul', size: 'pill' })}
           href={buildOrderUrl(category.footerCta.order ?? category.title)}
@@ -42,7 +43,7 @@ const CategoryBlock = ({ category, showDivider }: { category: MenuCategory; show
 );
 
 export const MenuSection = () => {
-  const [activeId, setActiveId] = useState(CATEGORIES[0]?.id ?? ALL_ID);
+  const [activeId, setActiveId] = useState(ALL_ID);
   const isAll = activeId === ALL_ID;
   const category = CATEGORIES.find((item) => item.id === activeId);
   const visible = isAll || !category ? CATEGORIES : [category];
@@ -50,11 +51,6 @@ export const MenuSection = () => {
   return (
     <section id="menu" className="bg-crema py-14">
       <div className="mx-auto max-w-wrap px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="Menú"
-          title="Tartas y budines"
-          description="Elegí una categoría. Todo se elabora por encargo."
-        />
         <MenuTabs categories={CATEGORIES} activeId={activeId} onChange={setActiveId} />
         <div
           role="tabpanel"

@@ -5,8 +5,8 @@ import { buildOrderUrl } from '@/lib/whatsapp';
 const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
 
 export const MenuCard = ({ item }: { item: MenuItem }) => (
-  <article className="rounded-[20px] border-[1.5px] border-linea bg-crema p-5">
-    <div className="mb-3.5 aspect-[4/3] overflow-hidden rounded-[14px] bg-lavanda">
+  <article className="rounded-[20px] border-[1.5px] border-linea bg-crema p-5 text-center">
+    <div className="mb-3.5 aspect-[3/4] overflow-hidden rounded-[14px] bg-lavanda">
       {item.imgSrc && (
         <img
           src={item.imgSrc}
@@ -24,7 +24,7 @@ export const MenuCard = ({ item }: { item: MenuItem }) => (
     <p className="mt-1 text-sm leading-[22px] text-texto-suave">{item.description}</p>
     {item.price && <p className="mt-1 text-sm font-bold text-lila-deep">{item.price}</p>}
     {item.options && (
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-3 flex flex-wrap justify-center gap-2">
         {item.options.map((option) => (
           <a
             key={option.label}

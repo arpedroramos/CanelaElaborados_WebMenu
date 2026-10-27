@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "npm run validar && tsc -b && vite build",
     "lint": "oxlint",
-    "validar": "tsx scripts/validar-menu.ts",
+    "validar": "tsx scripts/validar-menu.ts && tsx scripts/validar-destacados.ts",
     "preview": "vite preview"
   },
   "dependencies": {

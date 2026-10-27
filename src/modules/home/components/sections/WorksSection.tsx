@@ -1,5 +1,4 @@
 import { buttonClass } from '@/components/ui/button';
-import { CONTACTO } from '@/data/contacto';
 import { trabajos } from '@/data/trabajos';
 import { SectionHeading } from './SectionHeading';
 
@@ -8,14 +7,14 @@ export const WorksSection = () => (
     <div className="mx-auto max-w-wrap px-5 sm:px-8">
       <SectionHeading
         eyebrow="Portfolio"
-        title="Trabajos recientes"
-        description="Tartas, budines y mesas dulces hechos a medida."
+        title="Tortas personalizadas"
+        description="Diseños a medida para cada ocasión."
       />
-      <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-4">
+      <ul className="m-0 grid list-none grid-cols-4 gap-3 p-0">
         {trabajos.map((trabajo, index) => (
           <li
             key={trabajo.alt}
-            className={`aspect-[4/5] overflow-hidden rounded-[20px] sm:aspect-square ${index % 2 === 1 ? 'bg-lavanda-suave' : 'bg-lavanda'}`}
+            className={`aspect-[3/4] overflow-hidden rounded-[20px] ${index % 2 === 1 ? 'bg-lavanda-suave' : 'bg-lavanda'}`}
           >
             {trabajo.imgSrc && (
               <img src={trabajo.imgSrc} alt={trabajo.alt} loading="lazy" className="size-full object-cover" />
@@ -23,14 +22,9 @@ export const WorksSection = () => (
           </li>
         ))}
       </ul>
-      <div className="mt-6">
-        <a
-          className={buttonClass({ variant: 'linea', size: 'pill' })}
-          href={CONTACTO.instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver más en Instagram
+      <div className="mt-6 flex justify-center">
+        <a className={buttonClass({ variant: 'linea', size: 'pill' })} href="#/tortas-personalizadas">
+          Ver todas las tortas
         </a>
       </div>
     </div>
