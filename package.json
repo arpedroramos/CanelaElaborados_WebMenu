@@ -8,10 +8,7 @@
     "build": "npm run validar && tsc -b && vite build",
     "lint": "oxlint",
     "validar": "tsx scripts/validar-menu.ts",
-    "preview": "vite preview",
-    "contenido": "tsx scripts/generar-contenido.ts",
-    "contenido:plantilla": "tsx scripts/crear-plantilla.ts",
-    "publicar": "tsx scripts/publicar.ts"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -24,16 +21,12 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@types/gh-pages": "^6.1.0",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
-    "exceljs": "^4.4.0",
-    "gh-pages": "^6.3.0",
     "oxlint": "^1.75.0",
     "shadcn": "^4.22.1",
-    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "~6.0.2",
