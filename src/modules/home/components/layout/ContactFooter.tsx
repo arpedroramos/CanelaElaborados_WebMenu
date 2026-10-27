@@ -45,6 +45,17 @@ export const ContactFooter = () => (
           <p className="text-[15px]">{CONTACTO.ubicacion}</p>
         </div>
       </div>
+      <nav
+        aria-label="Información legal"
+        className="mt-10 flex justify-center gap-5 border-t border-crema/20 pt-5 text-[13px]"
+      >
+        <a className={linkClass} href="/privacidad/">
+          Privacidad
+        </a>
+        <a className={linkClass} href="/terminos/">
+          Términos
+        </a>
+      </nav>
     </div>
   </footer>
 );

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run validar && tsc -b && vite build",
+    "build": "npm run validar && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && tsx scripts/prerender.ts",
     "lint": "oxlint",
     "validar": "tsx scripts/validar-menu.ts && tsx scripts/validar-destacados.ts",
     "preview": "vite preview"

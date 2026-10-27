@@ -37,6 +37,12 @@ jobs:
       - run: npm run build
       - name: Verificar dominio (dist/CNAME)
         run: test -f dist/CNAME
+      - name: Verificar SEO (robots, 404 y páginas prerenderizadas)
+        run: |
+          test -f dist/robots.txt
+          test -f dist/404.html
+          test -f dist/privacidad/index.html
+          test -f dist/terminos/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

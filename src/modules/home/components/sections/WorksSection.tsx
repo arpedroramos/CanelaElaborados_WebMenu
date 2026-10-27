@@ -23,7 +23,7 @@ export const WorksSection = () => (
         ))}
       </ul>
       <div className="mt-6 flex justify-center">
-        <a className={buttonClass({ variant: 'linea', size: 'pill' })} href="#/tortas-personalizadas">
+        <a className={buttonClass({ variant: 'linea', size: 'pill' })} href="/tortas-personalizadas/">
           Ver todas las tortas
         </a>
       </div>
