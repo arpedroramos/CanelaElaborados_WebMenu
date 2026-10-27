@@ -2,6 +2,7 @@
 import { StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
 import App from './App.tsx';
+import { EN_CONSTRUCCION } from './data/estado_sitio';
 import { MENU } from './data/menu';
 import { RUTAS } from './data/rutas';
 import { SITIO } from './data/sitio';
@@ -19,4 +20,4 @@ export const imagenesMenu = (): string[] =>
   );
 
 export { jsonLdDe } from './lib/jsonld';
-export { RUTAS, SITIO };
+export { EN_CONSTRUCCION, RUTAS, SITIO };

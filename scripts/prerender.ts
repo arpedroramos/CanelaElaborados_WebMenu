@@ -4,7 +4,6 @@ import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { loadEnv } from 'vite';
 
 interface Ruta {
   path: string;
@@ -17,6 +16,7 @@ interface ModuloServidor {
   render: (path: string) => string;
   imagenesMenu: () => string[];
   jsonLdDe: (path: string) => object[];
+  EN_CONSTRUCCION: boolean;
   RUTAS: readonly Ruta[];
   SITIO: { url: string; nombre: string };
 }
@@ -30,8 +30,7 @@ if (!existsSync(join(dist, 'index.html')) || !existsSync(servidor)) {
   process.exit(1);
 }
 
-const { render, imagenesMenu, jsonLdDe, RUTAS, SITIO } = (await import(pathToFileURL(servidor).href)) as ModuloServidor;
-const enConstruccion = loadEnv('production', raiz, 'VITE_').VITE_EN_CONSTRUCCION === 'true';
+const { render, imagenesMenu, jsonLdDe, EN_CONSTRUCCION: enConstruccion, RUTAS, SITIO } = (await import(pathToFileURL(servidor).href)) as ModuloServidor;
 const plantilla = readFileSync(join(dist, 'index.html'), 'utf-8');
 
 const escapar = (texto: string): string =>

@@ -5,10 +5,8 @@ import { NoEncontradaView } from '@modules/legal/views/NoEncontradaView';
 import { PrivacidadView } from '@modules/legal/views/PrivacidadView';
 import { TerminosView } from '@modules/legal/views/TerminosView';
 import { TortasView } from '@modules/tortas/views/TortasView';
+import { EN_CONSTRUCCION as enConstruccion } from '@/data/estado_sitio';
 import { normalizarPath, rutaDe } from '@/data/rutas';
-
-// Se decide al compilar: VITE_EN_CONSTRUCCION=true en .env muestra la pantalla de construcción.
-const enConstruccion = import.meta.env.VITE_EN_CONSTRUCCION === 'true';
 
 const irAlAnclaje = (hash: string) => {
   const destino = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
