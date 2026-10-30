@@ -72,7 +72,7 @@ Plantilla: `.agents/skills/skill-creator/templates/SKILL_TEMPLATE.md`.
 | `senior-programmer` | Desarrollo, refactor y bugs. |
 | `ui-ux-designer` | Identidad de marca y responsive. |
 | `code-auditor` | Revisión de código, dependencias y chequeo previo a publicar. |
-| `git-manager` | Commits y despliegue a `gh-pages`. |
+| `git-manager` | Commits y despliegue por GitHub Actions (`main`). |
 | `documenter` | Documentación en `docs/`. |
 | `error-documenter` | Registro de errores resueltos. |
 | `writing-guidelines` | Estilo de redacción. |

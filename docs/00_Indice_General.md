@@ -7,8 +7,8 @@ Mapa de navegación de la documentación del portfolio y menú de **Canela Elabo
 ## 📁 Estructura
 
 ### [05. Control de Versiones y Despliegue (Git/DNS)](./05_Control_de_Versiones_Git/)
-* **[Despliegue en GitHub Pages y DNS](./05_Control_de_Versiones_Git/01_Pagina_En_Construccion_y_Despliegue_DNS.md)**: Estrategia de ramas (`master` / `gh-pages`), publicación de `dist/`, dominio `canelaelaborados.com.ar` con nic.ar y Cloudflare.
-* **[Contenido del menú desde Excel](./05_Control_de_Versiones_Git/02_Contenido_del_Menu_desde_Excel.md)**: Carpeta local `contenido/` (fuera de git), estructura del Excel y publicación con `npm run publicar`.
+* **[Despliegue en GitHub Pages y DNS](./05_Control_de_Versiones_Git/01_Pagina_En_Construccion_y_Despliegue_DNS.md)**: Ramas (`main` despliega por GitHub Actions), modo en construcción, ver el estado del despliegue, volver atrás, dominio `canelaelaborados.com.ar` con nic.ar y Cloudflare.
+* **[Menú desde la app](./05_Control_de_Versiones_Git/02_Menu_desde_la_App.md)**: Contrato de datos (`data/menu.json` + fotos), validación, texto de pedido de WhatsApp y flujo cargar → Publicar.
 
 ### [06. Interfaz Gráfica (UI/UX)](./06_Interfaz_Grafica/README.md)
 * **[Guía de diseño web](./06_Interfaz_Grafica/00_Guia_de_Diseno_Web.md)**: Referencia canónica del diseño (paleta, tipografías, estructura de la página y reglas mobile first).

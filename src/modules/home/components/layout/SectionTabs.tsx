@@ -3,8 +3,9 @@ import { HAY_MENU } from '@/data/menu';
 const TABS = [
   { href: '#inicio', label: 'Inicio' },
   ...(HAY_MENU ? [{ href: '#menu', label: 'Menú' }] : []),
-  { href: '#trabajos', label: 'Trabajos' },
+  { href: '#trabajos', label: 'Tortas personalizadas' },
   { href: '#nosotros', label: 'Nosotros' },
+  { href: '#preguntas', label: 'Preguntas' },
   { href: '#contacto', label: 'Contacto' },
 ];
 
@@ -13,7 +14,7 @@ export const SectionTabs = () => (
     aria-label="Secciones"
     className="sticky top-0 z-30 overflow-x-auto border-b border-linea bg-avena/95 whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
   >
-    <div className="mx-auto flex max-w-wrap gap-0.5 px-5 sm:px-8">
+    <div className="mx-auto flex w-max min-w-full justify-center gap-0.5 px-5 sm:px-8">
       {TABS.map((tab) => (
         <a
           key={tab.href}

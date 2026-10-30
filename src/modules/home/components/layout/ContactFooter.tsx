@@ -1,6 +1,5 @@
 import { buttonClass } from '@/components/ui/button';
 import { CONTACTO } from '@/data/contacto';
-import { HAY_MENU } from '@/data/menu';
 import { buildOrderUrl, buildWhatsAppUrl } from '@/lib/whatsapp';
 
 const linkClass = 'outline-none hover:text-lavanda focus-visible:ring-3 focus-visible:ring-lavanda';
@@ -10,8 +9,8 @@ const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
 export const ContactFooter = () => (
   <footer id="contacto" className="bg-azul pt-14 pb-8 text-crema">
     <div className="mx-auto max-w-wrap px-5 sm:px-8">
-      <div className="grid gap-9 lg:grid-cols-[1.3fr_1fr_1fr]">
-        <div className="flex flex-col gap-3">
+      <div className="grid justify-items-center gap-9 text-center lg:grid-cols-[1.3fr_1fr]">
+        <div className="flex flex-col items-center gap-3">
           <span className="font-hand text-[28px] tracking-[0.06em] text-lavanda uppercase">
             Artesanal · Calidad · Delicado
           </span>
@@ -29,7 +28,7 @@ export const ContactFooter = () => (
           </div>
         </div>
         <div>
-          <h4 className={headingClass}>Contacto</h4>
+          <h3 className={headingClass}>Contacto</h3>
           <ul className="m-0 list-none p-0 text-[15px]">
             <li className="mb-2">
               <a className={linkClass} href={buildWhatsAppUrl()} {...external}>
@@ -41,33 +40,22 @@ export const ContactFooter = () => (
                 @{CONTACTO.instagramUsuario}
               </a>
             </li>
-            <li className="mb-2">
-              <a className={linkClass} href={CONTACTO.webUrl} {...external}>
-                {CONTACTO.webVisible}
-              </a>
-            </li>
           </ul>
-        </div>
-        <div>
-          <h4 className={headingClass}>Secciones</h4>
-          <ul className="m-0 list-none p-0 text-[15px]">
-            {HAY_MENU && (
-              <li className="mb-2">
-                <a className={linkClass} href="#menu">Menú</a>
-              </li>
-            )}
-            <li className="mb-2">
-              <a className={linkClass} href="#trabajos">Trabajos</a>
-            </li>
-            <li className="mb-2">
-              <a className={linkClass} href="#nosotros">Nosotros</a>
-            </li>
-          </ul>
+          <h3 className={`${headingClass} mt-6`}>Ubicación</h3>
+          <p className="text-[15px]">{CONTACTO.ubicacion}</p>
         </div>
       </div>
-      <p className="mt-10 border-t border-crema/25 pt-5 font-cond text-[26px] leading-[30px] tracking-[0.08em] text-crema uppercase">
-        Hecho en Argentina · 100% emprendimiento nacional
-      </p>
+      <nav
+        aria-label="Información legal"
+        className="mt-10 flex justify-center gap-5 border-t border-crema/20 pt-5 text-[13px]"
+      >
+        <a className={linkClass} href="/privacidad/">
+          Privacidad
+        </a>
+        <a className={linkClass} href="/terminos/">
+          Términos
+        </a>
+      </nav>
     </div>
   </footer>
 );

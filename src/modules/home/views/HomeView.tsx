@@ -1,22 +1,32 @@
+import logoCanela from '@/assets/logo_canela.svg';
 import { HAY_MENU } from '@/data/menu';
+import { ConsultaProvider } from '../consulta/ConsultaContext';
+import { ConsultaBar } from '../components/layout/ConsultaBar';
 import { ContactFooter } from '../components/layout/ContactFooter';
 import { SectionTabs } from '../components/layout/SectionTabs';
-import { TopBar } from '../components/layout/TopBar';
 import { AboutSection } from '../components/sections/AboutSection';
+import { FaqSection } from '../components/sections/FaqSection';
 import { Hero } from '../components/sections/Hero';
 import { MenuSection } from '../components/sections/MenuSection';
 import { WorksSection } from '../components/sections/WorksSection';
 
 export const HomeView = () => (
-  <>
-    <TopBar />
+  <ConsultaProvider>
+    <header id="inicio" className="flex flex-col items-center gap-1 px-5 pt-4 pb-3 sm:gap-2 sm:px-8 sm:pt-6 sm:pb-4">
+      <img src={logoCanela} alt="Canela" width={702} height={175.5} className="h-11 w-auto sm:h-14" />
+      <p className="font-hand text-lg leading-[22px] sm:text-[22px] sm:leading-[26px] tracking-[0.06em] text-lila-deep uppercase">
+        Artesanal · Calidad · Delicado
+      </p>
+    </header>
     <SectionTabs />
     <main>
       <Hero />
       {HAY_MENU && <MenuSection />}
       <WorksSection />
       <AboutSection />
+      <FaqSection />
     </main>
     <ContactFooter />
-  </>
+    <ConsultaBar />
+  </ConsultaProvider>
 );

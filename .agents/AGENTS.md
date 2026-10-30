@@ -77,7 +77,7 @@ Tras resolver un error reportado por el usuario o por el compilador/linter, usa 
 - **Solo contenido estático**: sin servidor, SSR, API routes, base de datos ni cabeceras HTTP personalizadas. Todo dinamismo ocurre en el navegador.
 - **Sin secretos en el cliente**: todo lo que se publica es público. Prohibidas claves privadas, tokens y APIs con credenciales en el código o en `.env` del build.
 - **Límites**: sitio publicado ≤ 1 GB, ~100 GB de transferencia al mes, ~10 builds por hora, repositorio recomendado ≤ 1 GB. Úsalo con holgura: imágenes en WebP/AVIF (≤ ~200 KB cada una), `loading="lazy"` fuera del primer viewport, sin video pesado.
-- **Despliegue**: se publica la rama `gh-pages` (ver `docs/05_Control_de_Versiones_Git/`). Debe conservar el archivo `CNAME` con `canelaelaborados.com.ar`; en el repo fuente vive en `public/CNAME` para que cada build lo incluya.
+- **Despliegue**: lo hace GitHub Actions al hacer push a `main` (ver `docs/05_Control_de_Versiones_Git/`). El build debe incluir `dist/CNAME` con `canelaelaborados.com.ar`; en el repo fuente vive en `public/CNAME`. El menú (`data/menu.json` y fotos) lo escribe la app, no se edita a mano.
 - **Rutas**: con dominio propio `base` de Vite es `/`. Si el sitio crece a varias rutas, usa `HashRouter` o una copia de `index.html` como `404.html`; Pages no reescribe rutas.
 - **Pedidos y contacto**: enlaces `wa.me`/`mailto:`/redes. Formularios o analítica requieren un servicio externo gratuito (con su política de privacidad).
 - **SEO y compartidos**: `<title>`, descripción y Open Graph estáticos en `index.html`; el contenido que debe indexarse no puede depender solo de JavaScript tras interacción.
