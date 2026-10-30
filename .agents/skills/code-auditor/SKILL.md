@@ -16,7 +16,7 @@ Define **qué revisar**; las reglas viven en `.agents/AGENTS.md`.
 - Revisar código propuesto, un diff o un Pull Request.
 - Auditar el cumplimiento de las reglas globales.
 - Revisar dependencias antes de un upgrade o de publicar.
-- Chequeo previo a un despliegue a `gh-pages`.
+- Chequeo previo a un merge o push a `main` (que despliega por GitHub Actions).
 
 ## Reglas Estrictas
 

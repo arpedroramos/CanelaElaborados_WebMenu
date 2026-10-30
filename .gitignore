@@ -9,11 +9,9 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-server
 dist-ssr
 *.local
-
-# Contenido editable del menú (Excel) local
-contenido/
 
 # Editor directories and files
 .vscode/*
